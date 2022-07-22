@@ -1,7 +1,7 @@
 import Head from "next/head";
-import { Header } from "../ui";
 import { Box } from "@mui/material";
 import { FC, ReactNode } from "react";
+import { Header, Sidebar } from "../ui";
 
 interface Props {
   title?: string;
@@ -21,7 +21,7 @@ export const Layout: FC<Props> = (props) => {
       </Head>
 
       <Header />
-      {/* Sidebar */}
+      <Sidebar />
 
       <Box sx={{ padding: "10px 20px" }}>
         { children }
