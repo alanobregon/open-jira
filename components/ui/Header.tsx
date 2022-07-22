@@ -1,0 +1,18 @@
+import { MenuOutlined } from "@mui/icons-material"
+import { AppBar, IconButton, Toolbar, Typography } from "@mui/material"
+
+export const Header = () => {
+  return (
+    <AppBar position="sticky">
+      <Toolbar>
+        <IconButton size="large" edge="start">
+          <MenuOutlined />
+        </IconButton>
+        <Typography
+          variant="h6" 
+          children={`Open Jira`} 
+        />
+      </Toolbar>
+    </AppBar>
+  )
+}

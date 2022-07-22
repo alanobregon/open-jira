@@ -19,6 +19,10 @@ export const light = createTheme({
   },
 
   components: {
-    
+    MuiAppBar: {
+      defaultProps: {
+        elevation: 0,
+      }
+    }
   }
 });
