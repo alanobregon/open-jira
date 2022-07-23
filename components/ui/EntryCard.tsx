@@ -1,4 +1,8 @@
-import { Card, CardActionArea, CardActions, CardContent, Typography } from "@mui/material"
+import Card from "@mui/material/Card";
+import Typography from "@mui/material/Typography";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardActionArea from "@mui/material/CardActionArea";
 
 export const EntryCard = () => {
   return (
