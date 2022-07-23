@@ -11,14 +11,13 @@ const items: string[] = [
 ];
 
 export const Sidebar = () => {
-  const { sidebarOpen } = useContext(UIContext)
+  const { sidebarOpen, closeSidebar } = useContext(UIContext)
   return (
     <Drawer 
       anchor="left" 
-      open={sidebarOpen} 
-      onClose={
-        () => console.log("Cerrando")
-    }>
+      open={sidebarOpen}
+      onClose={closeSidebar}
+    >
       <Box sx={{ width: 300 }}>
         <Box sx={{ padding: "5px 10px" }}>
           <Typography variant="h4">
