@@ -3,10 +3,12 @@ import { FC, ReactNode, useReducer } from "react";
 
 export interface UIState {
   sidebarOpen: boolean;
+  entriesModal: boolean;
 }
 
 const UI_INITIAL_STATE: UIState = {
   sidebarOpen: false,
+  entriesModal: false
 }
 
 interface Props {
@@ -25,11 +27,21 @@ export const UIProvider: FC<Props> = (props) => {
     dispatch({ type: "UI_CLOSE_SIDEBAR" });
   }
 
+  const openEntriesModal = () => {
+    dispatch({ type: "UI_OPEN_ENTRIES_MODAL" });
+  }
+
+  const closeEntriesModal = () => {
+    dispatch({ type: "UI_CLOSE_ENTRIES_MODAL"});
+  }
+
   return (
     <UIContext.Provider value={{
       ...state,
       openSidebar,
       closeSidebar,
+      openEntriesModal,
+      closeEntriesModal
     }}>
       { children }
     </UIContext.Provider>
