@@ -5,11 +5,9 @@ import { Layout } from "../components/layouts";
 const HomePage: NextPage = () => {
   return (
     <Layout>
-      <Typography
-        variant='h1'
-        color={`primary`}
-        children={`Hola mundo`}
-      />
+      <Typography variant='h1' color={`primary`}>
+        Hola mundo
+      </Typography>
     </Layout>
   )
 }

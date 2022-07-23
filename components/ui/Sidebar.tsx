@@ -1,5 +1,7 @@
 import { InboxOutlined, MailOutline } from "@mui/icons-material";
 import { Box, Divider, Drawer, List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material"
+import { useContext } from "react";
+import { UIContext } from "../../context/ui";
 
 const items: string[] = [
   "Inbox",
@@ -9,19 +11,19 @@ const items: string[] = [
 ];
 
 export const Sidebar = () => {
+  const { sidebarOpen } = useContext(UIContext)
   return (
     <Drawer 
       anchor="left" 
-      open={true} 
+      open={sidebarOpen} 
       onClose={
         () => console.log("Cerrando")
     }>
       <Box sx={{ width: 300 }}>
         <Box sx={{ padding: "5px 10px" }}>
-          <Typography 
-            variant="h4" 
-            children={`Menu`} 
-          />
+          <Typography variant="h4">
+            Menu
+          </Typography>
         </Box>
 
         <List>
