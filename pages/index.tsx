@@ -15,7 +15,7 @@ const HomePage: NextPage = () => {
           <Card sx={{ height: "calc(100vh - 100px)" }}>
             <CardHeader title={`Pendientes`} />
             <CardContent>
-              <EntryList />
+              <EntryList status="pending"/>
             </CardContent>
           </Card>
         </Grid>
@@ -23,7 +23,7 @@ const HomePage: NextPage = () => {
           <Card sx={{ height: "calc(100vh - 100px)" }}>
             <CardHeader title={`En Progreso`} />
             <CardContent>
-              <EntryList />
+              <EntryList status="in-progress"/>
             </CardContent>
           </Card>
         </Grid>
@@ -31,7 +31,7 @@ const HomePage: NextPage = () => {
           <Card sx={{ height: "calc(100vh - 100px)" }}>
             <CardHeader title={`Completadas`} />
             <CardContent>
-              <EntryList />
+              <EntryList status="finished"/>
             </CardContent>
           </Card>
         </Grid>
