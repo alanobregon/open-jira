@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 import { FC, ReactNode } from "react";
 import { Header, Sidebar } from "../ui";
 
