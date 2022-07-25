@@ -1,10 +1,12 @@
+import { FC, DragEvent, useContext } from "react";
+import { UIContext } from "../../context/ui";
+import { Entry } from "../../interfaces";
+
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardActionArea from "@mui/material/CardActionArea";
-import { Entry } from "../../interfaces";
-import { FC } from "react";
 
 interface Props {
   entry: Entry;
@@ -12,9 +14,24 @@ interface Props {
 
 export const EntryCard: FC<Props> = (props) => {
   const { entry } = props;
+  const { startDragging, endDragging } = useContext(UIContext)
+
+  const onDragStart = (event: DragEvent) => {
+    event.dataTransfer.setData("text", entry._id);
+    startDragging();
+  }
+
+  const onDragEnd = (event: DragEvent) => {
+    endDragging();
+  }
 
   return (
-    <Card sx={{ marginBottom: 1, backgroundColor: "#4a148c" }}>
+    <Card 
+      sx={{ marginBottom: 1, backgroundColor: "#4a148c" }} 
+      onDragStart={onDragStart}
+      onDragEnd={onDragEnd}
+      draggable 
+    >
       <CardActionArea>
         <CardContent>
           <Typography sx={{ whiteSpace: "pre-line"}}>
