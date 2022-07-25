@@ -7,6 +7,8 @@ interface ContextProps {
   closeSidebar: () => void;
   openEntriesModal: () => void;
   closeEntriesModal: () => void;
+  startDragging: () => void;
+  endDragging: () => void;
 }
 
 export const UIContext = createContext({} as ContextProps);

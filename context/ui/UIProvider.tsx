@@ -4,11 +4,13 @@ import { FC, ReactNode, useReducer } from "react";
 export interface UIState {
   sidebarOpen: boolean;
   entriesModal: boolean;
+  isDragging: boolean;
 }
 
 const UI_INITIAL_STATE: UIState = {
   sidebarOpen: false,
-  entriesModal: false
+  entriesModal: false,
+  isDragging: false,
 }
 
 interface Props {
@@ -35,13 +37,23 @@ export const UIProvider: FC<Props> = (props) => {
     dispatch({ type: "UI_CLOSE_ENTRIES_MODAL"});
   }
 
+  const startDragging = () => {
+    dispatch({ type: "UI_START_DRAGGING" });
+  }
+
+  const endDragging = () => {
+    dispatch({ type: "UI_END_DRAGGING" });
+  }
+
   return (
     <UIContext.Provider value={{
       ...state,
       openSidebar,
       closeSidebar,
       openEntriesModal,
-      closeEntriesModal
+      closeEntriesModal,
+      startDragging,
+      endDragging,
     }}>
       { children }
     </UIContext.Provider>
