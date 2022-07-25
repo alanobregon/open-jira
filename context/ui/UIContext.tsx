@@ -1,6 +1,7 @@
 import { createContext } from "react";
 
 interface ContextProps {
+  isDragging: boolean;
   sidebarOpen: boolean;
   entriesModal: boolean;
   openSidebar: () => void;
