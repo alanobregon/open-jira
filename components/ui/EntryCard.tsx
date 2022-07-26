@@ -8,6 +8,9 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardActionArea from "@mui/material/CardActionArea";
 
+import "moment/locale/es-mx";
+import moment from "moment";
+
 interface Props {
   entry: Entry;
 }
@@ -25,6 +28,10 @@ export const EntryCard: FC<Props> = (props) => {
     endDragging();
   }
 
+  const getDiffHour = (time: number): string => {
+    return moment(time).fromNow();
+  }
+
   return (
     <Card 
       sx={{ marginBottom: 1, backgroundColor: "#4a148c" }} 
@@ -40,7 +47,7 @@ export const EntryCard: FC<Props> = (props) => {
         </CardContent>
         <CardActions sx={{ display: "flex", justifyContent: "end", paddingRight: 2 }}>
           <Typography variant={`body2`}>
-            hace 30 minutos
+            { getDiffHour(entry.createdAt) }
           </Typography>
         </CardActions>
       </CardActionArea>
