@@ -20,6 +20,12 @@ mongodb://localhost:27017/entriesdb
 MONGO_URL=mongodb://localhost:PORT/DB_NAME
 ```
 
+#### Construir modulos de node y levantar next
+```sh
+yarn install
+yarn dev
+```
+
 #### Llenar la base de datos con informacion de pruebas
 ```sh
 http://localhost:3000/api/seed
