@@ -1,6 +1,9 @@
+import NextLink from "next/link";
 import { useContext } from "react";
 import { UIContext } from "../../context/ui";
 
+import Link from "@mui/material/Link";
+import Button from "@mui/material/Button";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -8,7 +11,6 @@ import Typography from "@mui/material/Typography";
 
 import MenuOutlined from "@mui/icons-material/MenuOutlined";
 import AddCircleOutline from "@mui/icons-material/AddCircleOutline";
-import Button from "@mui/material/Button";
 
 export const Header = () => {
   const {openSidebar, openEntriesModal} = useContext(UIContext);
@@ -19,9 +21,13 @@ export const Header = () => {
         <IconButton size="large" edge="start" onClick={openSidebar}>
           <MenuOutlined />
         </IconButton>
-        <Typography variant="h6" sx={{ flexGrow: 1 }}>
-          Open Jira
-        </Typography>
+        <NextLink href={`/`} passHref>
+          <Link underline="none" sx={{ flexGrow: 1, color: "white" }}>
+            <Typography variant="h6">
+              Open Jira
+            </Typography>
+          </Link>
+        </NextLink>
         <Button
           size="medium" 
           color="inherit" 

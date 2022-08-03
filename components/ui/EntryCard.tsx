@@ -1,6 +1,7 @@
 import { FC, DragEvent, useContext } from "react";
 import { UIContext } from "../../context/ui";
 import { Entry } from "../../interfaces";
+import { useRouter } from "next/router";
 
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
@@ -17,6 +18,7 @@ interface Props {
 
 export const EntryCard: FC<Props> = (props) => {
   const { entry } = props;
+  const router = useRouter();
   const { startDragging, endDragging } = useContext(UIContext)
 
   const onDragStart = (event: DragEvent) => {
@@ -32,11 +34,16 @@ export const EntryCard: FC<Props> = (props) => {
     return moment(time).fromNow();
   }
 
+  const onClick = () => {
+    router.push(`/entries/${entry._id}`);
+  }
+
   return (
     <Card 
       sx={{ marginBottom: 1, backgroundColor: "#4a148c" }} 
       onDragStart={onDragStart}
       onDragEnd={onDragEnd}
+      onClick={onClick}
       draggable 
     >
       <CardActionArea>
